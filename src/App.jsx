@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Users from './Components/Users';
-
+import Users from './Components/Users/Users';
+import NewUser from './Components/NewUser/NewUser';
 const seedUsers = [
   {
     id: '1',
@@ -8,25 +8,33 @@ const seedUsers = [
     age: '32'
   },
   {
-    id: '1',
+    id: '2',
     username: 'jimbo',
     age: '23'
   },
   {
-    id: '2',
+    id: '3',
     username: 'jane',
     age: '34'
   }
 ]
 
 function App() {
-  const [user, setUser] = useState(seedUsers)
+  const [users, setUsers] = useState(seedUsers)
 
+  const addUserHandler = (user) => {
+    setUsers((prevUser) => {
+      return [user, ...user]
+    })
+
+  }
   return (
     <div>
-
+      <h2>Hiya Sam</h2>
+      <NewUser onAddUser = {addUserHandler} />
+      <Users users={users} />
     </div>
-  );
+  )
 }
 
 export default App;

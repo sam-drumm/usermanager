@@ -3,19 +3,19 @@ import './UserForm.css'
 
 function UserForm (props) {
 const [form,setForm] = useState({
-    username: '',
-    age: ''
+  username: '',
+  age: ''
 })
 
 function handleUsernameChange(e) {
     setForm((preState) =>{
-        return {...preState, username: e.target.value}
+        return {...preState, enteredUsername: e.target.value}
     })
 }
 
 function handleAgeChange(e) {
     setForm((preState)=> {
-        return {...preState, age: e.target.value}
+        return {...preState, enteredAge: e.target.value}
     })
 }
 
@@ -23,14 +23,14 @@ function handleSubmit(e) {
         e.preventDefault()
 
         const userData ={
-            username:form.username,
-            age:form.age,
+            username: form.enteredUsername,
+            age:form.enteredAge,
         }
 
         props.onSaveUserData(userData)
         setForm({
-            username: '',
-            age: ''
+            enteredUsername: '',
+            enteredAge: ''
         })
     }
 
@@ -43,14 +43,14 @@ function handleSubmit(e) {
             <label>
             Username
             </label>
-            <input type="text" value={form.username} onChange={handleUsernameChange} />
+            <input type="text" value={form.enteredUsername} onChange={handleUsernameChange} />
           </div>
 
           <div className='new-user__control'>
             <label>
             Age
             </label>
-            <input type="text" value={form.age} onChange={handleAgeChange}/>
+            <input type="number" value={form.enteredAge} onChange={handleAgeChange}/>
           </div>
 
           <div className='new-user__actions'>
