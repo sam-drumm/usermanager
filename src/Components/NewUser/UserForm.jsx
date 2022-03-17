@@ -3,8 +3,8 @@ import './UserForm.css'
 
 function UserForm (props) {
 const [form,setForm] = useState({
-  username: '',
-  age: ''
+  enteredUsername: '',
+  enteredAge: ''
 })
 
 function handleUsernameChange(e) {
@@ -21,7 +21,10 @@ function handleAgeChange(e) {
 
 function handleSubmit(e) {
         e.preventDefault()
-
+        if (form.enteredUsername === '' || form.enteredAge === ''){
+          window.alert('Please enter a valid name and age')
+          return
+        }
         const userData ={
             username: form.enteredUsername,
             age:form.enteredAge,
