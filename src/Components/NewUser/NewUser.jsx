@@ -12,9 +12,9 @@ function NewUser (props) {
     }         
     
     return(
-        <>
+        <div className="new-user">
         <UserForm onSaveUserData={userDataHandler} />
-        </>
+        </div>
     )
 }
 

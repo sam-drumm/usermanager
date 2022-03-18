@@ -25,6 +25,11 @@ function handleSubmit(e) {
           window.alert('Please enter a valid name and age')
           return
         }
+        if (form.enteredAge < 0) {
+          window.alert('You have to have been born')
+          return
+        }
+
         const userData ={
             username: form.enteredUsername,
             age:form.enteredAge,
@@ -38,9 +43,9 @@ function handleSubmit(e) {
     }
 
     return(
-        <>
-        <form onSubmit={handleSubmit}>
-        <div className='new-user__controls'>
+    <>
+    <form onSubmit={handleSubmit}>
+       <div className='new-user__controls'>
 
           <div className='new-user__control'>
             <label>

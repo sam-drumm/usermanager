@@ -6,10 +6,7 @@ function UserItem(props) {
 return (
     <li>
         <Card className="user-item" >
-            <div className="user_item__description">
-            <h2>{props.username}</h2>
-            <div className="user-item__age">{props.age}</div>
-            </div>
+            <div className="user-item__age">{props.username} ({props.age} years old)</div>
         </Card>
     </li>
 )
