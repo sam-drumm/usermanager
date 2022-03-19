@@ -5,7 +5,7 @@ import './UserItem.css'
 function UserItem(props) {
 return (
     <li>
-        <Card className="user-item" >
+        <Card >
             <div className="user-item__age">{props.username} ({props.age} years old)</div>
         </Card>
     </li>

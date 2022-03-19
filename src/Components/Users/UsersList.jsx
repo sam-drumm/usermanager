@@ -3,12 +3,12 @@ import UserItem from "./UserItem";
 import './UsersList.css'
 
 function UsersList (props) {
-    if (props.items.length ===0) {
-        return <h2>No users found!</h2>
-    }
+    // if (props.items.length ===0) {
+    //     return <h2>No users found!</h2>
+    // }
 return (
 
-<ul className="users-list">
+<div>
     {props.items.map((user) => (
         <UserItem
         key = {user.id}
@@ -16,7 +16,7 @@ return (
         age = {user.age}
         />
     ))}
-    </ul>
+    </div>
 )
 }
 
