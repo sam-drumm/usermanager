@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import Button from "../UI/Button";
+import ErrorModal from "../UI/ErrorModal";
 import './UserForm.css'
 
 function UserForm (props) {
@@ -6,6 +8,8 @@ const [form,setForm] = useState({
   enteredUsername: '',
   enteredAge: ''
 })
+
+const [alert, setAlert] = useState()
 
 function handleUsernameChange(e) {
     setForm((preState) =>{
@@ -22,11 +26,17 @@ function handleAgeChange(e) {
 function handleSubmit(e) {
         e.preventDefault()
         if (form.enteredUsername === '' || form.enteredAge === ''){
-          window.alert('Please enter a valid name and age')
+          setAlert({
+            title: 'Next!',
+            message: 'Wawoqq'
+          })
           return
         }
         if (form.enteredAge < 0) {
-          window.alert('You have to have been born')
+          setAlert({
+            title: 'OMG',
+            message: 'What are you doing'
+          })
           return
         }
 
@@ -42,8 +52,13 @@ function handleSubmit(e) {
         })
     }
 
+function errorHandler () {
+  setAlert(null)
+}
+
     return(
     <>
+    {alert && <ErrorModal title={alert.title} message={alert.message} onOk={errorHandler}/>}
     <form onSubmit={handleSubmit}>
        <div className='new-user__controls'>
 
@@ -62,9 +77,9 @@ function handleSubmit(e) {
           </div>
 
           <div className='new-user__actions'>
-            <button type="submit">
+            <Button type="submit">
             Add User
-            </button>
+            </Button>
           </div>
 
         </div>
