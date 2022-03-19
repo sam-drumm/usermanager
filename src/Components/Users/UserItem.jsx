@@ -6,7 +6,7 @@ function UserItem(props) {
 return (
     <li>
         <Card >
-            <div className="user-item__age">{props.username} ({props.age} years old)</div>
+            <div className="user-item__name">{props.username} ({props.age} years old)</div>
         </Card>
     </li>
 )
